@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import ListItem from '../components/ListItem'
+import AddButton from '../components/AddButton'
 
 const NotesListPage = () => {
   // initial state of this components is an empty array, since we don't have any notes yet.
@@ -31,6 +32,8 @@ const NotesListPage = () => {
           // <h3 key={index}>{note.body}</h3>
         ))}
       </div>
+
+      <AddButton />
     </div>
   )
 }

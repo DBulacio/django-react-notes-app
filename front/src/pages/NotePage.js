@@ -12,6 +12,7 @@ const NotePage = () => {
   }, [id])
   
   let getNote = async () => {
+    if(id == 'new')  return
     let res = await fetch(`/api/notes/${id}`)
     let data = await res.json()
     console.log('data', data)
@@ -49,7 +50,11 @@ const NotePage = () => {
         <h3>
           <ArrowLeft onClick={handleSubmit} />
         </h3>
-        <button onClick={deleteNote}>Delete</button>
+        {id !== 'new' ? (
+          <button onClick={deleteNote}>Delete</button>
+        ) : (
+          <button>Done</button>
+        )}
       </div>
       <textarea
         onChange={(e) => {setNote({...note, 'body':e.target.value})}}
